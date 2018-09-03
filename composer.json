@@ -1,0 +1,43 @@
+{
+  "name": "emi-soft/emi",
+  "description": "Emi",
+  "keywords": [
+    "Emi",
+    "Yii",
+    "framework"
+  ],
+  "homepage": "http://www.emi-soft.com/",
+  "type": "library",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Emi Soft",
+      "email": "emi.softdeveloper@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "~2.0.6",
+    "yiisoft/yii2-bootstrap": "~2.0.0",
+    "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-gii": "~2.0.0",
+    "yiisoft/yii2-faker": "~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "emi\\": ""
+    }
+  },
+  "bin": [
+    "emi"
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}

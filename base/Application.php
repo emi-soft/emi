@@ -27,9 +27,11 @@ abstract class Application extends \yii\web\Application
 
     /**
      * {@inheritDoc}
+     * @throws InvalidConfigException
      */
     protected function bootstrap()
     {
+
         $this->checkCoreComponent();
         $this->setVendorPath(dirname(dirname(dirname(__DIR__))));
         \Emi::setAlias('@engine', dirname(\Emi::getAlias('@vendor')));
@@ -37,8 +39,23 @@ abstract class Application extends \yii\web\Application
         $this->setLayoutPath('@template/basic/layouts');
         $this->setViewPath('@template/basic');
 
+
         parent::bootstrap();
 
+    }
+
+    private $_vendorPath;
+
+    /**
+     * Sets the directory that stores vendor files.
+     * @param string $path the directory that stores vendor files.
+     */
+    public function setVendorPath($path)
+    {
+        $this->_vendorPath = \Emi::getAlias($path);
+        \Emi::setAlias('@vendor', $this->_vendorPath);
+        \Emi::setAlias('@bower', $this->_vendorPath . DIRECTORY_SEPARATOR . 'bower-asset');
+        \Emi::setAlias('@npm', $this->_vendorPath . DIRECTORY_SEPARATOR . 'npm-asset');
     }
 
 

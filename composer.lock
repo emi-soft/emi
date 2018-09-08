@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13876c1485b852dd73f09a7c5784c3b2",
+    "content-hash": "0a364bb60b82db76ea0e74b30d14a12e",
     "packages": [
         {
             "name": "bower-asset/bootstrap",

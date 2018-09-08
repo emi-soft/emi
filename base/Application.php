@@ -17,46 +17,37 @@ use yii\base\InvalidConfigException;
  *
  * @property \emi\module\ModuleManager $moduleManager The module manager application component.
  * @property \emi\config\ConfigManager $configManager The config manager application component.
+ * @property \emi\theme\ThemeManager   $themeManager The config manager application component.
  */
 abstract class Application extends \yii\web\Application
 {
 
 
-    public $controllerNamespace = 'engine\\controllers';
+    public $template = 'basic';
+    public $templatePath = '@template';
 
 
-    /**
-     * {@inheritDoc}
-     * @throws InvalidConfigException
-     */
-    protected function bootstrap()
+    public function init()
     {
-
-        $this->checkCoreComponent();
-        $this->setVendorPath(dirname(dirname(dirname(__DIR__))));
         \Emi::setAlias('@engine', dirname(\Emi::getAlias('@vendor')));
         \Emi::setAlias('@emi', '@vendor/emi-soft/emi');
-        $this->setLayoutPath('@template/basic/layouts');
-        $this->setViewPath('@template/basic');
-
-
-        parent::bootstrap();
-
+        parent::init();
+        $this->checkCoreComponent();
     }
 
-    private $_vendorPath;
-
-    /**
-     * Sets the directory that stores vendor files.
-     * @param string $path the directory that stores vendor files.
-     */
-    public function setVendorPath($path)
+    protected function runCoreComponents()
     {
-        $this->_vendorPath = \Emi::getAlias($path);
-        \Emi::setAlias('@vendor', $this->_vendorPath);
-        \Emi::setAlias('@bower', $this->_vendorPath . DIRECTORY_SEPARATOR . 'bower-asset');
-        \Emi::setAlias('@npm', $this->_vendorPath . DIRECTORY_SEPARATOR . 'npm-asset');
+        if (\Emi::$app->has('configManager')) {
+            \Emi::$app->configManager->run();
+        }
+        if (\Emi::$app->has('moduleManager')) {
+            \Emi::$app->moduleManager->run();
+        }
+        if (\Emi::$app->has('themeManager')) {
+            \Emi::$app->themeManager->run();
+        }
     }
+
 
 
     /**
@@ -67,6 +58,7 @@ abstract class Application extends \yii\web\Application
         return array_merge(parent::coreComponents(), [
             'moduleManager' => ['class' => 'emi\module\DbModuleManager'],
             'configManager' => ['class' => 'emi\config\DBConfigManager'],
+//            'themeManager' => ['class' => 'emi\theme\ThemeManager'],
         ]);
     }
 
@@ -78,14 +70,22 @@ abstract class Application extends \yii\web\Application
     {
         if (!\Emi::$app->has('configManager')) {
             throw new InvalidConfigException('The component "configManager" for the Application is required.');
-        } else {
-            \Emi::$app->configManager->run();
         }
         if (!\Emi::$app->has('moduleManager')) {
             throw new InvalidConfigException('The component "moduleManager" for the Application is required.');
-        } else {
-            \Emi::$app->moduleManager->run();
         }
+
+        $this->runCoreComponents();
+    }
+
+    /**
+     * Returns the themeManager component.
+     * @return \emi\theme\ThemeManager|object
+     * @throws InvalidConfigException
+     */
+    public function getThemeManager()
+    {
+        return $this->get('themeManager');
     }
 
     /**

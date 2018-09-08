@@ -9,15 +9,37 @@
 namespace emi\base;
 
 
+use yii\base\InvalidConfigException;
 
-class Module extends \yii\base\Module
+/**
+ * Class Module
+ * @package emi\base
+ */
+abstract class Module extends \yii\base\Module
 {
 
+    /**
+     * @var
+     */
+    public $name;
+
+    /**
+     * @throws InvalidConfigException
+     */
     public function init()
     {
+        $this->setName();
+        if(!$this->name){
+            throw new InvalidConfigException('The property "name" for the Module is required.');
+        }
         parent::init();
-        $this->setLayoutPath('@template/basic/layouts');
-        $this->setViewPath('@template/basic/modules/' . $this->name);
+//        \Emi::$app->themeManager->run($this);
     }
+
+
+    /**
+     * @return mixed
+     */
+    abstract protected function setName();
 
 }

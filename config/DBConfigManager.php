@@ -54,6 +54,7 @@ class DBConfigManager extends ConfigManager
     {
         if (!is_array($config)) {
             if (property_exists(\Emi::$app, $name)) {
+
                 \Emi::$app->$name = $config;
             }
         }

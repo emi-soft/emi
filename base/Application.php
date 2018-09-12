@@ -9,6 +9,7 @@
 namespace emi\base;
 
 use yii\base\InvalidConfigException;
+use yii\web\View;
 
 /**
  * Class Application
@@ -29,8 +30,7 @@ abstract class Application extends \yii\web\Application
 
     public function init()
     {
-        \Emi::setAlias('@engine', dirname(\Emi::getAlias('@vendor')));
-        \Emi::setAlias('@emi', '@vendor/emi-soft/emi');
+//        \Emi::setAlias('@emi', '@vendor/emi-soft/emi');
         parent::init();
         $this->checkCoreComponent();
     }
@@ -49,7 +49,6 @@ abstract class Application extends \yii\web\Application
     }
 
 
-
     /**
      * {@inheritDoc}
      */
@@ -58,10 +57,10 @@ abstract class Application extends \yii\web\Application
         return array_merge(parent::coreComponents(), [
             'moduleManager' => ['class' => 'emi\module\DbModuleManager'],
             'configManager' => ['class' => 'emi\config\DBConfigManager'],
-//            'themeManager' => ['class' => 'emi\theme\ThemeManager'],
+            'themeManager' => ['class' => 'emi\theme\ThemeManager'],
+            'view' => ['class' => View::className(), 'theme' => ['pathMap' => ['@app/views' => '@template/basic', '@app/modules' => '@template/basic/modules', '@app/widgets' => '@template/basic/widgets']]],
         ]);
     }
-
 
     /**
      * @throws InvalidConfigException

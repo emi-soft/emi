@@ -1,0 +1,118 @@
+2018-09-08 23:28:04 [::1][-][-][error][Error] Error: Class 'app\models\User' not found in /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/web/User.php:690
+Stack trace:
+#0 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/web/User.php(192): yii\web\User->renewAuthStatus()
+#1 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/web/User.php(360): yii\web\User->getIdentity()
+#2 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/Component.php(139): yii\web\User->getIsGuest()
+#3 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2-debug/panels/UserPanel.php(81): yii\base\Component->__get('isGuest')
+#4 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\panels\UserPanel->init()
+#5 [internal function]: yii\base\BaseObject->__construct(Array)
+#6 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/di/Container.php(383): ReflectionClass->newInstanceArgs(Array)
+#7 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\debug\\panel...', Array, Array)
+#8 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\debug\\panel...', Array, Array)
+#9 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2-debug/Module.php(177): yii\BaseYii::createObject(Array)
+#10 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2-debug/Module.php(149): yii\debug\Module->initPanels()
+#11 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/BaseObject.php(109): yii\debug\Module->init()
+#12 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/Module.php(158): yii\base\BaseObject->__construct(Array)
+#13 [internal function]: yii\base\Module->__construct('debug', Object(emi\web\Application), Array)
+#14 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/di/Container.php(375): ReflectionClass->newInstanceArgs(Array)
+#15 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('yii\\debug\\Modul...', Array, Array)
+#16 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('yii\\debug\\Modul...', Array, Array)
+#17 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/Module.php(427): yii\BaseYii::createObject(Array, Array)
+#18 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/Application.php(315): yii\base\Module->getModule('debug')
+#19 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/web/Application.php(69): yii\base\Application->bootstrap()
+#20 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/emi-soft/emi/web/Application.php(23): yii\web\Application->bootstrap()
+#21 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/Application.php(273): emi\web\Application->bootstrap()
+#22 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/emi-soft/emi/base/Application.php(34): yii\base\Application->init()
+#23 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/BaseObject.php(109): emi\base\Application->init()
+#24 /Users/maksimskliarov/PhpstormProjects/emi-cms/vendor/yiisoft/yii2/base/Application.php(206): yii\base\BaseObject->__construct(Array)
+#25 /Users/maksimskliarov/PhpstormProjects/emi-cms/web/index.php(20): yii\base\Application->__construct(Array)
+#26 {main}
+2018-09-08 23:28:04 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-frontend' => '464fc2adf3d36e466fdaf11c8df46b6b'
+    '_csrf-frontend' => 'a1f6edf357c2affa335f8907d6236fbdc5fd973fcdaff290e934d65174925482a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"QQem2dLYQRi3iSEVKSaTPSwSnHFqsEOu\";}'
+    'PHPSESSID' => '582b8ca810643ae2f9730db2efea328e'
+    '_identity' => '304505ca9845c46c525de90a21eb24ab4556a80f4751494b9d5221d8f8cf124ca:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '79d8204b85feb89bf43068bd97425e99f14b560bbff676bcee5e26381a31e767a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"_RtCYPXWMDIGW7GNIAVCYJpEGrNANrEI\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'sixisye'
+    '__captcha/site/captchacount' => 1
+    '__id' => '100'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTPS' => 'on'
+    'REDIRECT_SSL_TLS_SNI' => 'emi.cms'
+    'REDIRECT_STATUS' => '200'
+    'HTTPS' => 'on'
+    'SSL_TLS_SNI' => 'emi.cms'
+    'SSL_SERVER_S_DN_ST' => '1'
+    'SSL_SERVER_S_DN_L' => '1'
+    'SSL_SERVER_S_DN_O' => '1'
+    'SSL_SERVER_S_DN_Email' => '1'
+    'SSL_SERVER_S_DN_CN' => 'emi.cms'
+    'SSL_SERVER_I_DN_ST' => '1'
+    'SSL_SERVER_I_DN_L' => '1'
+    'SSL_SERVER_I_DN_O' => '1'
+    'SSL_SERVER_I_DN_Email' => '1'
+    'SSL_SERVER_I_DN_CN' => 'emi.cms'
+    'SSL_VERSION_INTERFACE' => 'mod_ssl/2.2.32'
+    'SSL_VERSION_LIBRARY' => 'OpenSSL/1.0.2j'
+    'SSL_PROTOCOL' => 'TLSv1.2'
+    'SSL_SECURE_RENEG' => 'true'
+    'SSL_COMPRESS_METHOD' => 'NULL'
+    'SSL_CIPHER' => 'ECDHE-RSA-AES128-GCM-SHA256'
+    'SSL_CIPHER_EXPORT' => 'false'
+    'SSL_CIPHER_USEKEYSIZE' => '128'
+    'SSL_CIPHER_ALGKEYSIZE' => '128'
+    'SSL_CLIENT_VERIFY' => 'NONE'
+    'SSL_SERVER_M_VERSION' => '3'
+    'SSL_SERVER_M_SERIAL' => '89DA4BE0670D83AF'
+    'SSL_SERVER_V_START' => 'Sep  8 05:14:39 2018 GMT'
+    'SSL_SERVER_V_END' => 'Sep  8 05:14:39 2019 GMT'
+    'SSL_SERVER_S_DN' => '/ST=1/L=1/O=1/emailAddress=1/CN=emi.cms'
+    'SSL_SERVER_I_DN' => '/ST=1/L=1/O=1/emailAddress=1/CN=emi.cms'
+    'SSL_SERVER_A_KEY' => 'rsaEncryption'
+    'SSL_SERVER_A_SIG' => 'sha256WithRSAEncryption'
+    'SSL_SESSION_ID' => '22476C69EE3ECDCBF1E4D3FCCC801FA5D19F7AA2335E970DE78CD974A46FCEF7'
+    'HTTP_HOST' => 'emi.cms'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6'
+    'HTTP_COOKIE' => 'advanced-frontend=464fc2adf3d36e466fdaf11c8df46b6b; _csrf-frontend=a1f6edf357c2affa335f8907d6236fbdc5fd973fcdaff290e934d65174925482a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22QQem2dLYQRi3iSEVKSaTPSwSnHFqsEOu%22%3B%7D; PHPSESSID=582b8ca810643ae2f9730db2efea328e; _identity=304505ca9845c46c525de90a21eb24ab4556a80f4751494b9d5221d8f8cf124ca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=79d8204b85feb89bf43068bd97425e99f14b560bbff676bcee5e26381a31e767a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_RtCYPXWMDIGW7GNIAVCYJpEGrNANrEI%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'emi.cms'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '443'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/maksimskliarov/PhpstormProjects/emi-cms'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/maksimskliarov/PhpstormProjects/emi-cms/web/index.php'
+    'REMOTE_PORT' => '51708'
+    'REDIRECT_URL' => '/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1536438484.12
+    'REQUEST_TIME' => 1536438484
+    'argv' => []
+    'argc' => 0
+]

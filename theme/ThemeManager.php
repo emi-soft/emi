@@ -49,8 +49,27 @@ class ThemeManager extends Component implements ThemeManagerInterface
 
     public function setTemplate($template, $moduleName = false)
     {
+        \Emi::setAlias('@theme', "@template/{$template}");
+        \Emi::setAlias('@THEME', "@web/web/themes/{$template}/asset");
+        \Emi::$app->view->theme->setBaseUrl("@THEME") ;
 
-       /* if ($moduleName) {
+        \Emi::$app->view->theme->pathMap = [
+            '@app/views' => [
+                "@template/{$template}",
+                "@template/basic"
+            ],
+            '@app/modules' => [
+                "@template/{$template}/modules",
+                "@template/basic/modules"
+
+            ],
+            '@app/widgets' => [
+                "@template/{$template}/widgets",
+                "@template/basic/widgets"
+            ],
+        ];
+
+        /*if ($moduleName) {
             if($moduleName->layoutPath == 'default'){
                 $moduleName->setLayoutPath("{$this->_templatePath}/{$template}/layouts");
             } else {
@@ -61,7 +80,8 @@ class ThemeManager extends Component implements ThemeManagerInterface
         } else {
 
 
-            \Emi::setAlias('@THEME','@web/public/templates/'.$template);
+//            \Emi::setAlias('@THEME','@web/public/templates/'.$template);
+
 
             \Emi::$app->setLayoutPath("{$this->_templatePath}/{$template}/layouts");
             \Emi::$app->setViewPath("{$this->_templatePath}/{$template}");
